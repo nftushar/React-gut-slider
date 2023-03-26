@@ -25,6 +25,9 @@ img.model-img2 {
 
 p.desc {
     margin-top: 10px;
+    color: black;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 .list-images {
@@ -50,7 +53,7 @@ p {
 }
 
 .container {
-    width: 70%;
+    width: 88%;
     margin: 0 auto;
 }
 
