@@ -3,22 +3,22 @@
     padding: 0;
 }
 
-.main {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    margin: 20px;
-    justify-content: center;
-}
-
 .portfolio-items {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 15px;
     row-gap: 15px;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
 
 }
 
 .portfolio-item {
+    background-image: url("image/proj-6.png");
+    height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
     overflow: hidden;
 }
 
@@ -51,36 +51,21 @@
     cursor: pointer;
 }
 
-.img {
-    background-image: url("image/proj-6.png");
-    height: 400px;
-    width: 400px;
-    background-repeat: no-repeat;
+
+/* ------------------------------------------ Media Query ------------------- */
+@media screen and (max-width: 992px) {
+    .portfolio-items {
+        grid-template-columns: repeat(2, auto);
+    }
 }
 
-/* .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    flex-direction: column;
-} */
-
-.img:hover .content {
-    background-color: rgba(20, 20, 18, 0.6);
-    opacity: 1;
-    transform: rotateY(0deg) scale(1, 1);
+@media screen and (max-width: 576px) {
+    .portfolio-items {
+        grid-template-columns: repeat(1, auto);
+    }
 }
 
-h2 {
-    text-align: center;
-    color: #ffff;
-}
 
-.desc {
-    color: #ffff;
-    text-align: center;
-}
 
 /* button.click {
     margin-top: 15px;
@@ -108,9 +93,126 @@ h2 {
 
 /*--------------------------------------- popup modal ------------------------ */
 
+h2 {
+    text-align: center;
+    color: #ffff;
+}
+
+.desc {
+    color: #ffff;
+    text-align: center;
+}
+
+span {
+    font-weight: 600;
+    font-size: 18px;
+    color: #0BF;
+}
+
+p {
+    margin: 0 0 24px;
+    margin: 0 0 2.4rem;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.red {
+    color: #fa566f;
+}
+
+img.model-img2 {
+    width: 100%;
+}
+
+p.desc {
+    margin-top: 10px;
+    color: black;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.list-images {
+    display: flex;
+}
+
+/* .list-images img {
+    margin-top: 20px;
+    height: 80px;
+} */
+
+h1.heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 0;
+}
+
+.side-bar {
+    margin-top: 10PX;
+}
+
+
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px;
+}
+
+
+/*  -=-------------------modal css----------------------------------------------- */
+.slider-wrapper {
+    position: relative;
+}
+
+.slider {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.thumbs {
+    display: flex;
+    margin-top: 10px;
+    column-gap: 8px;
+}
+
+.thumb {
+    width: 80px;
+    height: 60px;
+    border: 2px solid white;
+    opacity: 0.5;
+    transition: opacity 0.8s ease-in-out;
+    cursor: pointer;
+}
+
+.thumb.active {
+    opacity: 1;
+}
+
+.footer {
+    margin: 15px 25px 0px 25px;
+}
+
+/*--------------------------------------- popup modal ------------------------ */
+
 
 /* The Modal (background) */
-.modal {
+#portfolio-modal {
     display: none;
     /* Hidden by default */
     position: fixed;
@@ -133,14 +235,24 @@ h2 {
     /* Black w/ opacity */
 }
 
+#portfolio-modal .modal-text {
+    margin-left: 30px;
+}
+
+/* .modal-content {
+    width: 88%;
+    margin: 0 auto;
+} */
+
 /* Modal Content */
-.modal-content {
+#portfolio-modal .modal-content {
     position: relative;
+    width: 80rem;
     background-color: #fefefe;
-    margin: auto;
+    margin: 0 auto;
     padding: 0;
     /* border: 1px solid #888; */
-    width: 80%;
+    /* width: 80%; */
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -174,34 +286,53 @@ h2 {
 }
 
 /* The Close Button */
-.close {
-    color: white;
+#portfolio-modal .close {
+    color: #489625;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+#portfolio-modal .close:hover,
+#portfolio-modal .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-.modal-header {
+#portfolio-modal .modal-header {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
 }
 
-.modal-body {
-    padding: 2px 16px;
+#portfolio-modal .modal-body {
+    /* padding: 2px 16px; */
 }
 
-.modal-footer {
+#portfolio-modal .modal-footer {
+    text-align: center;
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
 }
 
+@media only screen and (max-width: 768px) {
+    #portfolio-modal .modal-content{
+            width: 80%;
+    }
+        #portfolio-modal .modal-text{
+            margin: 20px 0px 0px 0px;
+        }
+    .row {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+    }
+}
 
+@media only screen and (max-width: 600px) {
+    .row {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+    }
+}
